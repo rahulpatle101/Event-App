@@ -12,6 +12,15 @@
 		BA5CF56C1C28C2A6008F5DFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5CF56A1C28C2A6008F5DFB /* Main.storyboard */; };
 		BA5CF56E1C28C2A6008F5DFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA5CF56D1C28C2A6008F5DFB /* Assets.xcassets */; };
 		BA5CF5711C28C2A6008F5DFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5CF56F1C28C2A6008F5DFB /* LaunchScreen.storyboard */; };
+		BAD7E0101C39BA380076E61B /* CellDescriptorList copy.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAD7E00F1C39BA370076E61B /* CellDescriptorList copy.plist */; };
+		BAD7E0121C39BB020076E61B /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E0111C39BB020076E61B /* CustomCell.swift */; };
+		BAD7E01A1C39BC420076E61B /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7E0141C39BC420076E61B /* DatePickerCell.xib */; };
+		BAD7E01B1C39BC420076E61B /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7E0151C39BC420076E61B /* NormalCell.xib */; };
+		BAD7E01C1C39BC420076E61B /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7E0161C39BC420076E61B /* SliderCell.xib */; };
+		BAD7E01D1C39BC420076E61B /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7E0171C39BC420076E61B /* SwitchCell.xib */; };
+		BAD7E01E1C39BC420076E61B /* TextfieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7E0181C39BC420076E61B /* TextfieldCell.xib */; };
+		BAD7E01F1C39BC420076E61B /* ValuePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7E0191C39BC420076E61B /* ValuePickerCell.xib */; };
+		BAD7E0211C39BCAE0076E61B /* searchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E0201C39BCAE0076E61B /* searchVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		BA5CF56D1C28C2A6008F5DFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA5CF5701C28C2A6008F5DFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA5CF5721C28C2A6008F5DFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAD7E00F1C39BA370076E61B /* CellDescriptorList copy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CellDescriptorList copy.plist"; sourceTree = "<group>"; };
+		BAD7E0111C39BB020076E61B /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		BAD7E0141C39BC420076E61B /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
+		BAD7E0151C39BC420076E61B /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
+		BAD7E0161C39BC420076E61B /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		BAD7E0171C39BC420076E61B /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
+		BAD7E0181C39BC420076E61B /* TextfieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextfieldCell.xib; sourceTree = "<group>"; };
+		BAD7E0191C39BC420076E61B /* ValuePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValuePickerCell.xib; sourceTree = "<group>"; };
+		BAD7E0201C39BCAE0076E61B /* searchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +73,30 @@
 			isa = PBXGroup;
 			children = (
 				BA5CF5661C28C2A6008F5DFB /* AppDelegate.swift */,
+				BAD7E0111C39BB020076E61B /* CustomCell.swift */,
+				BAD7E0201C39BCAE0076E61B /* searchVC.swift */,
 				BA5CF5681C28C2A6008F5DFB /* ViewController.swift */,
+				BAD7E0131C39BBAA0076E61B /* CustomCell */,
 				BA5CF56A1C28C2A6008F5DFB /* Main.storyboard */,
 				BA5CF56D1C28C2A6008F5DFB /* Assets.xcassets */,
 				BA5CF56F1C28C2A6008F5DFB /* LaunchScreen.storyboard */,
+				BAD7E00F1C39BA370076E61B /* CellDescriptorList copy.plist */,
 				BA5CF5721C28C2A6008F5DFB /* Info.plist */,
 			);
 			path = MarketEventApp;
+			sourceTree = "<group>";
+		};
+		BAD7E0131C39BBAA0076E61B /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				BAD7E0141C39BC420076E61B /* DatePickerCell.xib */,
+				BAD7E0151C39BC420076E61B /* NormalCell.xib */,
+				BAD7E0161C39BC420076E61B /* SliderCell.xib */,
+				BAD7E0171C39BC420076E61B /* SwitchCell.xib */,
+				BAD7E0181C39BC420076E61B /* TextfieldCell.xib */,
+				BAD7E0191C39BC420076E61B /* ValuePickerCell.xib */,
+			);
+			name = CustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +158,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA5CF5711C28C2A6008F5DFB /* LaunchScreen.storyboard in Resources */,
+				BAD7E01D1C39BC420076E61B /* SwitchCell.xib in Resources */,
+				BAD7E0101C39BA380076E61B /* CellDescriptorList copy.plist in Resources */,
+				BAD7E01A1C39BC420076E61B /* DatePickerCell.xib in Resources */,
+				BAD7E01E1C39BC420076E61B /* TextfieldCell.xib in Resources */,
+				BAD7E01C1C39BC420076E61B /* SliderCell.xib in Resources */,
 				BA5CF56E1C28C2A6008F5DFB /* Assets.xcassets in Resources */,
+				BAD7E01F1C39BC420076E61B /* ValuePickerCell.xib in Resources */,
+				BAD7E01B1C39BC420076E61B /* NormalCell.xib in Resources */,
 				BA5CF56C1C28C2A6008F5DFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,7 +177,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD7E0211C39BCAE0076E61B /* searchVC.swift in Sources */,
 				BA5CF5691C28C2A6008F5DFB /* ViewController.swift in Sources */,
+				BAD7E0121C39BB020076E61B /* CustomCell.swift in Sources */,
 				BA5CF5671C28C2A6008F5DFB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +330,7 @@
 				BA5CF5771C28C2A6008F5DFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

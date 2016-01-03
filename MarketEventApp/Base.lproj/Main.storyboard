@@ -159,12 +159,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICV-Uu-np6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1523" y="-93"/>
+            <point key="canvasLocation" x="1693" y="-93"/>
         </scene>
         <!--Search-->
         <scene sceneID="nms-oh-Utz">
             <objects>
-                <viewController title="Search" id="oJM-rL-Nfs" sceneMemberID="viewController">
+                <viewController title="Search" id="oJM-rL-Nfs" customClass="searchVC" customModule="MarketEventApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dtg-ux-ETb"/>
                         <viewControllerLayoutGuide type="bottom" id="kk8-8e-66z"/>
@@ -172,8 +172,30 @@
                     <view key="view" contentMode="scaleToFill" id="4nb-I4-ZSQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="KAE-c2-WpU">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F0I-Q8-O4o">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KAE-c2-WpU" firstAttribute="leading" secondItem="4nb-I4-ZSQ" secondAttribute="leading" id="6XH-tb-pbO"/>
+                            <constraint firstAttribute="trailing" secondItem="F0I-Q8-O4o" secondAttribute="trailing" id="8Cd-co-Djg"/>
+                            <constraint firstItem="F0I-Q8-O4o" firstAttribute="top" secondItem="KAE-c2-WpU" secondAttribute="bottom" id="VJg-nu-jNv"/>
+                            <constraint firstItem="F0I-Q8-O4o" firstAttribute="leading" secondItem="4nb-I4-ZSQ" secondAttribute="leading" id="aen-LO-iXj"/>
+                            <constraint firstItem="kk8-8e-66z" firstAttribute="top" secondItem="F0I-Q8-O4o" secondAttribute="bottom" id="bTz-Fl-eD0"/>
+                            <constraint firstAttribute="trailing" secondItem="KAE-c2-WpU" secondAttribute="trailing" id="uAu-kw-PzL"/>
+                            <constraint firstItem="KAE-c2-WpU" firstAttribute="top" secondItem="Dtg-ux-ETb" secondAttribute="bottom" id="yBM-NH-Z5r"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tblExpandable" destination="F0I-Q8-O4o" id="tdG-F2-UAH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plL-hk-m6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
