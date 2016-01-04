@@ -11,6 +11,7 @@ import UIKit
 class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
     
     // MARK: IBOutlet Properties
+    @IBOutlet var searchBar: UISearchBar!
     
     @IBOutlet weak var tblExpandable: UITableView!
     
@@ -107,13 +108,16 @@ class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Cu
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Personal"
-            
+            return "Category"
+        
         case 1:
-            return "Preferences"
+            return "Country/Cultures"
+            
+        case 2:
+            return "Price"
             
         default:
-            return "Work Experience"
+            return "New Artists"
         }
     }
     
@@ -171,6 +175,7 @@ class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Cu
     }
     
     
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let indexOfTappedRow = visibleRowsPerSection[indexPath.section][indexPath.row]
         
@@ -197,6 +202,17 @@ class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Cu
                 }
                 
                 cellDescriptors[indexPath.section][indexOfParentCell].setValue((tblExpandable.cellForRowAtIndexPath(indexPath) as! CustomCell).textLabel?.text, forKey: "primaryTitle")
+                
+                //sending selected value for segaway
+                let currentItem: String!
+                currentItem = cellDescriptors[indexPath.section][indexOfTappedRow]["primaryTitle"] as! String
+                
+                print(currentItem)
+                
+                
+                print("here changing the val needs to call new vc")
+                performSegueWithIdentifier("searchResultSW", sender: currentItem)
+                
                 cellDescriptors[indexPath.section][indexOfParentCell].setValue(false, forKey: "isExpanded")
                 
                 for i in (indexOfParentCell + 1)...(indexOfParentCell + (cellDescriptors[indexPath.section][indexOfParentCell]["additionalRows"] as! Int)) {
@@ -258,6 +274,16 @@ class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Cu
         cellDescriptors[2][1].setValue(newSliderValue, forKey: "value")
         
         tblExpandable.reloadSections(NSIndexSet(index: 2), withRowAnimation: UITableViewRowAnimation.None)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "searchResultSW" {
+            if let searchVC = segue.destinationViewController as? SearchResultVC {
+                if let currentItem = sender as? String {
+                    searchVC.searchCategory = currentItem
+                }
+            }
+        }
     }
     
 }
