@@ -8,7 +8,7 @@
 
 import UIKit
 
-class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate {
+class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CustomCellDelegate, UISearchBarDelegate {
     
     // MARK: IBOutlet Properties
     @IBOutlet var searchBar: UISearchBar!
@@ -21,6 +21,7 @@ class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Cu
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -284,6 +285,20 @@ class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Cu
                 }
             }
         }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if searchBar.text == nil || searchBar.text == "" {
+            view.endEditing(true)
+        } else {
+            if let currentItem = searchBar.text {
+                view.endEditing(true)
+                searchBar.text = ""
+                performSegueWithIdentifier("searchResultSW", sender: currentItem)
+            }
+
+        }
+        
     }
     
 }
