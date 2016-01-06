@@ -14,6 +14,12 @@ class ArtistCell: UICollectionViewCell {
     
     var artist: Artist!
     
+    required init?(coder aCoder: NSCoder) {
+        super.init(coder: aCoder)
+        
+        layer.cornerRadius = 5.0
+    }
+    
     func configureCell(artist: Artist) {
         self.artist = artist
         
