@@ -86,6 +86,16 @@ class BrowseArtistVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        var arti: Artist!
+        
+        if inSearchMode {
+            arti = filteredArtist[indexPath.row]
+        } else {
+            arti = artist[indexPath.row]
+        }
+        
+        performSegueWithIdentifier("ArtistDetailVC", sender: arti)
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -121,6 +131,17 @@ class BrowseArtistVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             filteredArtist = artist.filter({$0.name.rangeOfString(lower) != nil})
             collection.reloadData()
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ArtistDetailVC" {
+            if let detailVC = segue.destinationViewController as? ArtistDetailVC {
+                if let arti = sender as? Artist {
+                    detailVC.artistDetail = arti
+                }
+            }
+        }
+        
     }
 
 }

@@ -114,9 +114,6 @@ class searchVC: UIViewController, UITableViewDelegate, UITableViewDataSource, Cu
         case 1:
             return "Country/Cultures"
             
-        case 2:
-            return "Price"
-            
         default:
             return "New Artists"
         }

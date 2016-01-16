@@ -253,62 +253,6 @@
 			<key>primaryTitle</key>
 			<string></string>
 			<key>secondaryTitle</key>
-			<string>Sort Price</string>
-			<key>cellIdentifier</key>
-			<string>idCellNormal</string>
-			<key>additionalRows</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>isExpandable</key>
-			<false/>
-			<key>isExpanded</key>
-			<false/>
-			<key>isVisible</key>
-			<false/>
-			<key>value</key>
-			<string></string>
-			<key>primaryTitle</key>
-			<string>Low - High</string>
-			<key>secondaryTitle</key>
-			<string></string>
-			<key>cellIdentifier</key>
-			<string>idCellValuePicker</string>
-			<key>additionalRows</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>isExpandable</key>
-			<false/>
-			<key>isExpanded</key>
-			<false/>
-			<key>isVisible</key>
-			<false/>
-			<key>value</key>
-			<string></string>
-			<key>primaryTitle</key>
-			<string>High - Low</string>
-			<key>secondaryTitle</key>
-			<string></string>
-			<key>cellIdentifier</key>
-			<string>idCellValuePicker</string>
-			<key>additionalRows</key>
-			<integer>0</integer>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>isExpandable</key>
-			<true/>
-			<key>isExpanded</key>
-			<false/>
-			<key>isVisible</key>
-			<true/>
-			<key>value</key>
-			<string></string>
-			<key>primaryTitle</key>
-			<string></string>
-			<key>secondaryTitle</key>
 			<string>Choose Artist</string>
 			<key>cellIdentifier</key>
 			<string>idCellNormal</string>

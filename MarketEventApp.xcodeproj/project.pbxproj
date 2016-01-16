@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA02FA011C4603AA0022517E /* HoldProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02FA001C4603AA0022517E /* HoldProductCell.swift */; };
 		BA5CF5671C28C2A6008F5DFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5CF5661C28C2A6008F5DFB /* AppDelegate.swift */; };
 		BA5CF5691C28C2A6008F5DFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5CF5681C28C2A6008F5DFB /* ViewController.swift */; };
 		BA5CF56C1C28C2A6008F5DFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5CF56A1C28C2A6008F5DFB /* Main.storyboard */; };
@@ -29,9 +30,15 @@
 		BAD7E02F1C3D6E660076E61B /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E02E1C3D6E660076E61B /* Artist.swift */; };
 		BAD7E0341C3D7A670076E61B /* ArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E0331C3D7A670076E61B /* ArtistCell.swift */; };
 		BAD7E0361C3D7E3E0076E61B /* BrowseArtistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E0351C3D7E3E0076E61B /* BrowseArtistVC.swift */; };
+		BAD7E0381C3D8FF10076E61B /* ArtistDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E0371C3D8FF10076E61B /* ArtistDetailVC.swift */; };
+		BAD7E03B1C4592160076E61B /* MEA_CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E0391C4592160076E61B /* MEA_CoreData.xcdatamodeld */; };
+		BAD7E03D1C4596810076E61B /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E03C1C4596810076E61B /* CartVC.swift */; };
+		BAD7E0901C45E68B0076E61B /* HoldProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E08E1C45E68B0076E61B /* HoldProduct+CoreDataProperties.swift */; };
+		BAD7E0911C45E68B0076E61B /* HoldProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E08F1C45E68B0076E61B /* HoldProduct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA02FA001C4603AA0022517E /* HoldProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoldProductCell.swift; sourceTree = "<group>"; };
 		BA5CF5631C28C2A6008F5DFB /* MarketEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5CF5661C28C2A6008F5DFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA5CF5681C28C2A6008F5DFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +63,11 @@
 		BAD7E02E1C3D6E660076E61B /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		BAD7E0331C3D7A670076E61B /* ArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistCell.swift; sourceTree = "<group>"; };
 		BAD7E0351C3D7E3E0076E61B /* BrowseArtistVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseArtistVC.swift; sourceTree = "<group>"; };
+		BAD7E0371C3D8FF10076E61B /* ArtistDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailVC.swift; sourceTree = "<group>"; };
+		BAD7E03A1C4592160076E61B /* MEA_CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MEA_CoreData.xcdatamodel; sourceTree = "<group>"; };
+		BAD7E03C1C4596810076E61B /* CartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
+		BAD7E08E1C45E68B0076E61B /* HoldProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HoldProduct+CoreDataProperties.swift"; path = "../HoldProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BAD7E08F1C45E68B0076E61B /* HoldProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HoldProduct.swift; path = ../HoldProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +109,7 @@
 				BA5CF56D1C28C2A6008F5DFB /* Assets.xcassets */,
 				BAD7E00F1C39BA370076E61B /* CellDescriptorList copy.plist */,
 				BA5CF5721C28C2A6008F5DFB /* Info.plist */,
+				BAD7E0391C4592160076E61B /* MEA_CoreData.xcdatamodeld */,
 			);
 			path = MarketEventApp;
 			sourceTree = "<group>";
@@ -117,6 +130,8 @@
 		BAD7E0301C3D6E6F0076E61B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BAD7E08E1C45E68B0076E61B /* HoldProduct+CoreDataProperties.swift */,
+				BAD7E08F1C45E68B0076E61B /* HoldProduct.swift */,
 				BAD7E0261C3A7D230076E61B /* Product.swift */,
 				BAD7E02E1C3D6E660076E61B /* Artist.swift */,
 			);
@@ -132,6 +147,8 @@
 				BAD7E0241C3A69F30076E61B /* SearchResultVC.swift */,
 				BAD7E02C1C3D4DAD0076E61B /* ProductDetailVC.swift */,
 				BAD7E0351C3D7E3E0076E61B /* BrowseArtistVC.swift */,
+				BAD7E0371C3D8FF10076E61B /* ArtistDetailVC.swift */,
+				BAD7E03C1C4596810076E61B /* CartVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -143,6 +160,7 @@
 				BA5CF56A1C28C2A6008F5DFB /* Main.storyboard */,
 				BAD7E02A1C3A9A500076E61B /* ResultCell.swift */,
 				BAD7E0331C3D7A670076E61B /* ArtistCell.swift */,
+				BA02FA001C4603AA0022517E /* HoldProductCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -227,16 +245,22 @@
 			files = (
 				BAD7E0341C3D7A670076E61B /* ArtistCell.swift in Sources */,
 				BAD7E0211C39BCAE0076E61B /* searchVC.swift in Sources */,
+				BAD7E0901C45E68B0076E61B /* HoldProduct+CoreDataProperties.swift in Sources */,
 				BA5CF5691C28C2A6008F5DFB /* ViewController.swift in Sources */,
 				BAD7E02B1C3A9A500076E61B /* ResultCell.swift in Sources */,
 				BAD7E0121C39BB020076E61B /* CustomCell.swift in Sources */,
 				BAD7E0361C3D7E3E0076E61B /* BrowseArtistVC.swift in Sources */,
 				BA5CF5671C28C2A6008F5DFB /* AppDelegate.swift in Sources */,
 				BAD7E0291C3A7F020076E61B /* Constants.swift in Sources */,
+				BAD7E03D1C4596810076E61B /* CartVC.swift in Sources */,
 				BAD7E0251C3A69F30076E61B /* SearchResultVC.swift in Sources */,
 				BAD7E02D1C3D4DAD0076E61B /* ProductDetailVC.swift in Sources */,
+				BAD7E0911C45E68B0076E61B /* HoldProduct.swift in Sources */,
 				BAD7E02F1C3D6E660076E61B /* Artist.swift in Sources */,
+				BA02FA011C4603AA0022517E /* HoldProductCell.swift in Sources */,
 				BAD7E0271C3A7D230076E61B /* Product.swift in Sources */,
+				BAD7E03B1C4592160076E61B /* MEA_CoreData.xcdatamodeld in Sources */,
+				BAD7E0381C3D8FF10076E61B /* ArtistDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,10 +371,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MarketEventApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.codecoop.MarketEventApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -359,6 +385,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MarketEventApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.codecoop.MarketEventApp;
@@ -389,6 +416,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BAD7E0391C4592160076E61B /* MEA_CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BAD7E03A1C4592160076E61B /* MEA_CoreData.xcdatamodel */,
+			);
+			currentVersion = BAD7E03A1C4592160076E61B /* MEA_CoreData.xcdatamodel */;
+			name = MEA_CoreData.xcdatamodeld;
+			path = ../MEA_CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BA5CF55B1C28C2A5008F5DFB /* Project object */;
 }
