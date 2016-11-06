@@ -9,14 +9,14 @@
 import Foundation
 
 class Artist {
-    private var _name: String!
-    private var _id: Int!
-    private var _medium: String!
-    private var _country: String!
-    private var _type: String!
-    private var _impact: Int!
-    private var _wImpact: Int!
-    private var _mImpact: Int!
+    fileprivate var _name: String!
+    fileprivate var _id: Int!
+    fileprivate var _medium: String!
+    fileprivate var _country: String!
+    fileprivate var _type: String!
+    fileprivate var _impact: Int!
+    fileprivate var _wImpact: Int!
+    fileprivate var _mImpact: Int!
     
     var name: String {
         return _name

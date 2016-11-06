@@ -21,7 +21,7 @@ class ResultCell: UITableViewCell {
         // Initialization code
     }
 
-    func configureCell(product: Product){
+    func configureCell(_ product: Product){
         titleLbl.text = product.name
         descLbl.text = product.description
         priceLbl.text = product.price

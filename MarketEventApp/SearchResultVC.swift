@@ -37,13 +37,13 @@ class SearchResultVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let product = products[indexPath.row]
-        if let cell = tableView.dequeueReusableCellWithIdentifier("ResultCell") as? ResultCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell") as? ResultCell {
             cell.configureCell(product)
             return cell
         } else {
@@ -53,27 +53,27 @@ class SearchResultVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90.0
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
         
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let product: Product!
         
         product = products[indexPath.row]
         
-        performSegueWithIdentifier("ProductDetailVC", sender: product)
+        performSegue(withIdentifier: "ProductDetailVC", sender: product)
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProductDetailVC" {
-            if let detailsVC = segue.destinationViewController as? ProductDetailVC {
+            if let detailsVC = segue.destination as? ProductDetailVC {
                 if let product = sender as? Product {
                     detailsVC.product = product
                 }

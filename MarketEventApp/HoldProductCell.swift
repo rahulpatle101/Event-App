@@ -14,11 +14,11 @@ class HoldProductCell: UITableViewCell {
     @IBOutlet weak var boothIDLbl: UILabel!
     @IBOutlet weak var timerLbl: UILabel!
     
-    var timerTable = [Int: NSTimer]()
+    var timerTable = [Int: Timer]()
     var id :Int = 0
     
-    func startTimer(target: AnyObject, selector: Selector, interval: NSTimeInterval) -> Int {
-        var timer = NSTimer.scheduledTimerWithTimeInterval(interval, target: target, selector: selector, userInfo: nil, repeats: true)
+    func startTimer(_ target: AnyObject, selector: Selector, interval: TimeInterval) -> Int {
+        let timer = Timer.scheduledTimer(timeInterval: interval, target: target, selector: selector, userInfo: nil, repeats: true)
         
         id += 1
         timerTable[id] = timer
@@ -27,9 +27,9 @@ class HoldProductCell: UITableViewCell {
     
     /*! Stop a timer of an id
     */
-    func stopTimer(id: Int) {
+    func stopTimer(_ id: Int) {
         if let timer = timerTable[id] {
-            if timer.valid {
+            if timer.isValid {
                 timer.invalidate()
             }
         }
@@ -37,7 +37,7 @@ class HoldProductCell: UITableViewCell {
     
     /*! Returns timer instance of an id
     */
-    func getTimer(id: Int) -> NSTimer? {
+    func getTimer(_ id: Int) -> Timer? {
         return timerTable[id]
     }
     
@@ -49,7 +49,7 @@ class HoldProductCell: UITableViewCell {
     }
 
 
-    func configureCell(holdProduct: HoldProduct) {
+    func configureCell(_ holdProduct: HoldProduct) {
         itemNameLbl.text = holdProduct.name
         boothIDLbl?.text = holdProduct.boothID
         timerLbl.text = holdProduct.timeLeft

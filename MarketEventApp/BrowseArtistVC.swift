@@ -27,7 +27,7 @@ class BrowseArtistVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.dataSource = self
         
         searchBar.delegate = self
-        searchBar.returnKeyType = UIReturnKeyType.Done
+        searchBar.returnKeyType = UIReturnKeyType.done
         
         let artist1 = Artist(name: "Lisa Sulton", id: 1)
         let artist2 = Artist(name: "Nena Plata ", id: 2)
@@ -44,27 +44,58 @@ class BrowseArtistVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         let artist13 = Artist(name: "Doreatha Farrah", id: 13)
         let artist14 = Artist(name: "Jessenia Degen", id: 14)
         
-        artist.append(artist1)
-        artist.append(artist2)
-        artist.append(artist3)
-        artist.append(artist4)
-        artist.append(artist5)
-        artist.append(artist6)
-        artist.append(artist7)
-        artist.append(artist8)
-        artist.append(artist9)
-        artist.append(artist10)
-        artist.append(artist11)
-        artist.append(artist12)
-        artist.append(artist13)
-        artist.append(artist14)
+//        artist.append(artist1)
+//        artist.append(artist2)
+//        artist.append(artist3)
+//        artist.append(artist4)
+//        artist.append(artist5)
+//        artist.append(artist6)
+//        artist.append(artist7)
+//        artist.append(artist8)
+//        artist.append(artist9)
+//        artist.append(artist10)
+//        artist.append(artist11)
+//        artist.append(artist12)
+//        artist.append(artist13)
+//        artist.append(artist14)
+        
+        parseArtistDataCSV()
         
     }
     
+    func parseArtistDataCSV() {
+        let path = Bundle.main.path(forResource: "ArtistName", ofType: "csv")!
+
+        do {
+            
+            let csv = try CSV(contentsOfURL: path)
+            let rows = csv.rows
+            
+            for row in rows {
+//                if row["ArtistName"] != "" {
+                    let artistName = String(row["ArtistName"]!)
+//                } else {
+//                    let artistName = "No Name"
+//                }
+                
+//                if row["ArtistID"] != "" {
+                    let artistID = Int(row["ArtistID"]!)!
+//                }
+                
+                let arti = Artist(name: artistName!, id: artistID)
+                artist.append(arti)
+  
+            }
+            print(rows)
+            
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ArtistCell", forIndexPath:indexPath) as? ArtistCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistCell", for:indexPath) as? ArtistCell {
             
             
 //            let artist = Artist(name: "Artist Name", id: indexPath.row)
@@ -84,7 +115,7 @@ class BrowseArtistVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         var arti: Artist!
         
@@ -94,11 +125,11 @@ class BrowseArtistVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             arti = artist[indexPath.row]
         }
         
-        performSegueWithIdentifier("ArtistDetailVC", sender: arti)
+        performSegue(withIdentifier: "ArtistDetailVC", sender: arti)
         
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if inSearchMode {
             return filteredArtist.count
         }
@@ -107,19 +138,19 @@ class BrowseArtistVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(85, 85)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 85, height: 85)
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == nil || searchBar.text == "" {
             inSearchMode = false
             view.endEditing(true)
@@ -127,15 +158,15 @@ class BrowseArtistVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             
         } else {
             inSearchMode = true
-            let lower = searchBar.text!.lowercaseString
-            filteredArtist = artist.filter({$0.name.rangeOfString(lower) != nil})
+            let lower = searchBar.text!.lowercased()
+            filteredArtist = artist.filter({$0.name.range(of: lower) != nil})
             collection.reloadData()
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ArtistDetailVC" {
-            if let detailVC = segue.destinationViewController as? ArtistDetailVC {
+            if let detailVC = segue.destination as? ArtistDetailVC {
                 if let arti = sender as? Artist {
                     detailVC.artistDetail = arti
                 }

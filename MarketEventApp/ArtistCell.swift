@@ -20,11 +20,11 @@ class ArtistCell: UICollectionViewCell {
         layer.cornerRadius = 5.0
     }
     
-    func configureCell(artist: Artist) {
+    func configureCell(_ artist: Artist) {
         self.artist = artist
         
         
-        nameLbl.text = self.artist.name.capitalizedString
+        nameLbl.text = self.artist.name.capitalized
 //        thumbImg.image = UIImage(named:
     }
 }

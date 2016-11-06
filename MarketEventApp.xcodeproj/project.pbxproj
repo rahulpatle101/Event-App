@@ -8,11 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		BA02FA011C4603AA0022517E /* HoldProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02FA001C4603AA0022517E /* HoldProductCell.swift */; };
+		BA3EF02D1CCD72920016D0F5 /* ArtistAllData.tsv in Resources */ = {isa = PBXBuildFile; fileRef = BA3EF02C1CCD72920016D0F5 /* ArtistAllData.tsv */; };
 		BA5CF5671C28C2A6008F5DFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5CF5661C28C2A6008F5DFB /* AppDelegate.swift */; };
 		BA5CF5691C28C2A6008F5DFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5CF5681C28C2A6008F5DFB /* ViewController.swift */; };
 		BA5CF56C1C28C2A6008F5DFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5CF56A1C28C2A6008F5DFB /* Main.storyboard */; };
 		BA5CF56E1C28C2A6008F5DFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA5CF56D1C28C2A6008F5DFB /* Assets.xcassets */; };
 		BA5CF5711C28C2A6008F5DFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5CF56F1C28C2A6008F5DFB /* LaunchScreen.storyboard */; };
+		BA676BCB1CBB5982003FDE43 /* ifaasqlite-preview.db in Resources */ = {isa = PBXBuildFile; fileRef = BA676BCA1CBB5982003FDE43 /* ifaasqlite-preview.db */; };
+		BA676BD21CBE0498003FDE43 /* TABLE_1.json in Resources */ = {isa = PBXBuildFile; fileRef = BA676BD11CBE0498003FDE43 /* TABLE_1.json */; };
+		BA6B79C11C5FFF7700AC934F /* CSwiftV.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6B79C01C5FFF7700AC934F /* CSwiftV.swift */; };
+		BA6B79C31C606D4500AC934F /* ArtistName.csv in Resources */ = {isa = PBXBuildFile; fileRef = BA6B79C21C606D4500AC934F /* ArtistName.csv */; };
+		BAB2AEA21C5BAEE2007474D1 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB2AEA11C5BAEE2007474D1 /* csv.swift */; };
+		BAB2AEAC1C5BB532007474D1 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = BAB2AEAB1C5BB532007474D1 /* pokemon.csv */; };
+		BAB2AEAE1C5BB61E007474D1 /* aData.csv in Resources */ = {isa = PBXBuildFile; fileRef = BAB2AEAD1C5BB61E007474D1 /* aData.csv */; };
+		BAB2AEB01C5BB720007474D1 /* artist_data.csv in Resources */ = {isa = PBXBuildFile; fileRef = BAB2AEAF1C5BB720007474D1 /* artist_data.csv */; };
 		BAD7E0101C39BA380076E61B /* CellDescriptorList copy.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAD7E00F1C39BA370076E61B /* CellDescriptorList copy.plist */; };
 		BAD7E0121C39BB020076E61B /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7E0111C39BB020076E61B /* CustomCell.swift */; };
 		BAD7E01A1C39BC420076E61B /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7E0141C39BC420076E61B /* DatePickerCell.xib */; };
@@ -39,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		BA02FA001C4603AA0022517E /* HoldProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoldProductCell.swift; sourceTree = "<group>"; };
+		BA3EF02C1CCD72920016D0F5 /* ArtistAllData.tsv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ArtistAllData.tsv; sourceTree = "<group>"; };
 		BA5CF5631C28C2A6008F5DFB /* MarketEventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketEventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5CF5661C28C2A6008F5DFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA5CF5681C28C2A6008F5DFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +56,14 @@
 		BA5CF56D1C28C2A6008F5DFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA5CF5701C28C2A6008F5DFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA5CF5721C28C2A6008F5DFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA676BCA1CBB5982003FDE43 /* ifaasqlite-preview.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ifaasqlite-preview.db"; sourceTree = "<group>"; };
+		BA676BD11CBE0498003FDE43 /* TABLE_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TABLE_1.json; sourceTree = "<group>"; };
+		BA6B79C01C5FFF7700AC934F /* CSwiftV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSwiftV.swift; sourceTree = "<group>"; };
+		BA6B79C21C606D4500AC934F /* ArtistName.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ArtistName.csv; sourceTree = "<group>"; };
+		BAB2AEA11C5BAEE2007474D1 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
+		BAB2AEAB1C5BB532007474D1 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
+		BAB2AEAD1C5BB61E007474D1 /* aData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aData.csv; sourceTree = "<group>"; };
+		BAB2AEAF1C5BB720007474D1 /* artist_data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = artist_data.csv; sourceTree = "<group>"; };
 		BAD7E00F1C39BA370076E61B /* CellDescriptorList copy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CellDescriptorList copy.plist"; sourceTree = "<group>"; };
 		BAD7E0111C39BB020076E61B /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		BAD7E0141C39BC420076E61B /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
@@ -105,13 +123,38 @@
 				BAD7E0311C3D6E7F0076E61B /* Controller */,
 				BA5CF5661C28C2A6008F5DFB /* AppDelegate.swift */,
 				BAD7E0281C3A7F020076E61B /* Constants.swift */,
+				BAB2AEA31C5BAEFB007474D1 /* Util */,
+				BAB2AEA41C5BAF1B007474D1 /* Resources */,
 				BAD7E0131C39BBAA0076E61B /* CustomCell */,
 				BA5CF56D1C28C2A6008F5DFB /* Assets.xcassets */,
 				BAD7E00F1C39BA370076E61B /* CellDescriptorList copy.plist */,
 				BA5CF5721C28C2A6008F5DFB /* Info.plist */,
+				BA676BCA1CBB5982003FDE43 /* ifaasqlite-preview.db */,
 				BAD7E0391C4592160076E61B /* MEA_CoreData.xcdatamodeld */,
 			);
 			path = MarketEventApp;
+			sourceTree = "<group>";
+		};
+		BAB2AEA31C5BAEFB007474D1 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BAB2AEA11C5BAEE2007474D1 /* csv.swift */,
+				BA6B79C01C5FFF7700AC934F /* CSwiftV.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		BAB2AEA41C5BAF1B007474D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BA3EF02C1CCD72920016D0F5 /* ArtistAllData.tsv */,
+				BA676BD11CBE0498003FDE43 /* TABLE_1.json */,
+				BA6B79C21C606D4500AC934F /* ArtistName.csv */,
+				BAB2AEAF1C5BB720007474D1 /* artist_data.csv */,
+				BAB2AEAD1C5BB61E007474D1 /* aData.csv */,
+				BAB2AEAB1C5BB532007474D1 /* pokemon.csv */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		BAD7E0131C39BBAA0076E61B /* CustomCell */ = {
@@ -192,11 +235,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = CODECOOP;
 				TargetAttributes = {
 					BA5CF5621C28C2A5008F5DFB = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -224,14 +268,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA5CF5711C28C2A6008F5DFB /* LaunchScreen.storyboard in Resources */,
+				BA3EF02D1CCD72920016D0F5 /* ArtistAllData.tsv in Resources */,
 				BAD7E01D1C39BC420076E61B /* SwitchCell.xib in Resources */,
 				BAD7E0101C39BA380076E61B /* CellDescriptorList copy.plist in Resources */,
 				BAD7E01A1C39BC420076E61B /* DatePickerCell.xib in Resources */,
+				BA676BCB1CBB5982003FDE43 /* ifaasqlite-preview.db in Resources */,
+				BA6B79C31C606D4500AC934F /* ArtistName.csv in Resources */,
 				BAD7E01E1C39BC420076E61B /* TextfieldCell.xib in Resources */,
 				BAD7E01C1C39BC420076E61B /* SliderCell.xib in Resources */,
+				BAB2AEAE1C5BB61E007474D1 /* aData.csv in Resources */,
 				BA5CF56E1C28C2A6008F5DFB /* Assets.xcassets in Resources */,
+				BAB2AEB01C5BB720007474D1 /* artist_data.csv in Resources */,
 				BAD7E01F1C39BC420076E61B /* ValuePickerCell.xib in Resources */,
+				BA676BD21CBE0498003FDE43 /* TABLE_1.json in Resources */,
 				BAD7E01B1C39BC420076E61B /* NormalCell.xib in Resources */,
+				BAB2AEAC1C5BB532007474D1 /* pokemon.csv in Resources */,
 				BA5CF56C1C28C2A6008F5DFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +304,8 @@
 				BA5CF5671C28C2A6008F5DFB /* AppDelegate.swift in Sources */,
 				BAD7E0291C3A7F020076E61B /* Constants.swift in Sources */,
 				BAD7E03D1C4596810076E61B /* CartVC.swift in Sources */,
+				BA6B79C11C5FFF7700AC934F /* CSwiftV.swift in Sources */,
+				BAB2AEA21C5BAEE2007474D1 /* csv.swift in Sources */,
 				BAD7E0251C3A69F30076E61B /* SearchResultVC.swift in Sources */,
 				BAD7E02D1C3D4DAD0076E61B /* ProductDetailVC.swift in Sources */,
 				BAD7E0911C45E68B0076E61B /* HoldProduct.swift in Sources */,
@@ -299,8 +352,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -343,8 +398,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -363,6 +420,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -377,6 +435,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.codecoop.MarketEventApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -390,6 +449,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.codecoop.MarketEventApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

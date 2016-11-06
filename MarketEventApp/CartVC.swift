@@ -14,7 +14,7 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
     
-    var timer = NSTimer()
+    var timer = Timer()
     var holdDuration: Int! = 300
     
     var timerIsRunning: Bool = true
@@ -25,7 +25,6 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var boothIdField : UITextField!
     
     var products = [HoldProduct]()
-    var newList = [HoldProduct]()
     
     
     override func viewDidLoad() {
@@ -34,52 +33,63 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.tableView.dataSource = self
         
         
+        
+        fetchAndSetResults()
+        if products.count > 0 && !(timer.isValid) {
+            startTimer()
+        } else {
+            timer.invalidate()
+        }
+        
     }
+    
     
     
  
     
     func startTimer(){
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateTime"), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CartVC.updateTime), userInfo: nil, repeats: true)
         timerIsRunning = true
     
     }
     
     func updateTime(){
+        
     
- 
     //check if it has been 10 seconds
     seconds += 1
-//    print(seconds)
+    print(seconds)
         if seconds == 60 {
             // resets the timer and calls restartTimer()
             seconds = 0
             print("60 secs finished now restarting")
-            restartTimer()
+//            restartTimer()
+            timer.invalidate()
             fetchAndSetResults()
             tableView.reloadData()
         }
     
     }
     
-    func restartTimer(){
-    //reset and startTimer()
-        print("restarted - calling startTimer()")
-        timer.invalidate()
-        timerIsRunning = false
-        startTimer()
+//    func restartTimer(){
+//    //reset and startTimer()
+//        print("restarted - calling startTimer()")
+//        timer.invalidate()
+//        timerIsRunning = false
+//        startTimer()
+//    
+//    }
     
-    }
-    
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+//        timer.invalidate()
+//        startTimer()
         fetchAndSetResults()
         tableView.reloadData()
-        startTimer()
         
         }
     
-    override func viewDidDisappear(animated:Bool) {
-        timer.invalidate()
+    override func viewDidDisappear(_ animated:Bool) {
+//        timer.invalidate()
         print("view disppeard")
     }
 
@@ -89,12 +99,12 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("HoldProductCell") as? HoldProductCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "HoldProductCell") as? HoldProductCell {
             
             let holdProduct = products[indexPath.row]
             
@@ -108,37 +118,41 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         
-        return UITableViewCellEditingStyle.Delete
+        return UITableViewCellEditingStyle.delete
         
     }
     
-    func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             
             let timerToDelete = self.products[indexPath.row]
             
             
-                let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-                let entity = NSEntityDescription.entityForName("HoldProduct", inManagedObjectContext: context)!
+                let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+                let entity = NSEntityDescription.entity(forEntityName: "HoldProduct", in: context)!
                 
-                context.deleteObject(timerToDelete)
+                context.delete(timerToDelete)
                 
                 do {
                     try context.save()
                 } catch {
                     print("Could not delete holdproduct")
                 }
-            products.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-
+            products.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
                 
                 fetchAndSetResults()
+                if products.count == 0{
+                    timer.invalidate()
+                }
                 tableView.reloadData()
                 
            
@@ -146,32 +160,33 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             
             
-        } else if editingStyle == .Insert {
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 83.0
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func configurationTextFields(itemNameField: UITextField){
+    func configurationTextFields(_ itemNameField: UITextField){
         itemNameField.placeholder = "Enter item name"
         self.itemNameField = itemNameField
     }
     
-    func configurationTextFields2(boothIdField: UITextField){
+    func configurationTextFields2(_ boothIdField: UITextField){
         
         boothIdField.placeholder = "Enter Booth #"
+        boothIdField.keyboardType = UIKeyboardType.numberPad
         self.boothIdField = boothIdField
     }
     
     
-    @IBAction func addButtonPressed(sender: AnyObject) {
+    @IBAction func addButtonPressed(_ sender: AnyObject) {
         alertPopup()
     }
     
@@ -180,21 +195,24 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func saveNewItem(){
         
-        if let itemName = itemNameField.text where itemName != "" && boothIdField.text != "" {
-            let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-            let entity = NSEntityDescription.entityForName("HoldProduct", inManagedObjectContext: context)!
+        if let itemName = itemNameField.text, itemName != "" && boothIdField.text != "" {
             
-            let holdProduct = HoldProduct(entity: entity, insertIntoManagedObjectContext:context)
+            let boothIdName = boothIdField.text
+//            if let boothIdNameInt = boothIdName as Int {
+            let context = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+            let entity = NSEntityDescription.entity(forEntityName: "HoldProduct", in: context)!
+            
+            let holdProduct = HoldProduct(entity: entity, insertInto:context)
                 
             holdProduct.name = itemNameField.text
-            holdProduct.boothID = boothIdField.text
+            holdProduct.boothID = boothIdName
             
             
             //get 24 hour time format
-            let currentDate = NSDate()
-            let dateForm = NSDateFormatter()
+            let currentDate = Date()
+            let dateForm = DateFormatter()
             dateForm.dateFormat = "HHmm"
-            let convertedDate = dateForm.stringFromDate(currentDate)
+            let convertedDate = dateForm.string(from: currentDate)
             //adding 3 hours (hold time limit)
             let timeNow: Int! = Int(convertedDate)
             let newTime: Int! = timeNow! + 300
@@ -204,7 +222,8 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             holdProduct.timeLeft = newTimeStr
             holdProduct.timeAlert = newTimeStr
             
-            context.insertObject(holdProduct)
+            context.insert(holdProduct)
+            
             
             do {
                 try context.save()
@@ -212,21 +231,35 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 print("Could not save holdproduct")
             }
             
+            //starttimer
+            if timer.isValid {
+                print("running")
+                
+            } else {
+                startTimer()
+            }
+            
+            
             fetchAndSetResults()
             tableView.reloadData()
+//            }else {
+//                print("type int please")
+//                typeBoothNumberError()
+//            }
         } else {
             print("Please enter valid info")
+            typeBoothNumberError()
         }
     }
     
     func fetchAndSetResults() {
-        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "HoldProduct")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "HoldProduct")
 
         
         do {
-            let results = try context.executeFetchRequest(fetchRequest)
+            let results = try context.fetch(fetchRequest)
             
             self.products = results as! [HoldProduct]
 
@@ -236,12 +269,12 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 for result: AnyObject! in results as! [HoldProduct] {
                     
                     //get the hold due time from the coredata
-                    let limitTime = result.valueForKey("time") as! String
+                    let limitTime = result.value(forKey: "time") as! String
                     
-                    let currentTime = NSDate()
-                    let dateForm = NSDateFormatter()
+                    let currentTime = Date()
+                    let dateForm = DateFormatter()
                     dateForm.dateFormat = "HHmm"
-                    let convertedTime = dateForm.stringFromDate(currentTime)
+                    let convertedTime = dateForm.string(from: currentTime)
                     
                     
                     let timeNow: Int! = Int(convertedTime)
@@ -257,17 +290,17 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //                    print(timeLeft)
                     
                     //get the name
-                    let itemName = result.valueForKey("name") as! String
+                    let itemName = result.value(forKey: "name") as! String
                     
                     //get the booth ID
-                    let boothId = result.valueForKey("boothID") as! String
+                    let boothId = result.value(forKey: "boothID") as! String
       
 //                    print(timeLeftStr)
 //                    print(limitTime)
                     
                     result.setValue(timeLeftStr, forKey: "timeLeft")
                     
-                    let char = result.valueForKey("timeLeft") as! String
+                    let char = result.value(forKey: "timeLeft") as! String
                     let characters = Array(char.characters)
                     let timeLeftTxt: String!
 //                    print(characters.count)
@@ -286,12 +319,16 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                     result.setValue(timeLeftTxt, forKey: "timeLeft")
                     result.setValue(timeLeftStr, forKey: "timeAlert")
                     
-                    let timeLeftIs = result.valueForKey("timeAlert") as! String
+                    let timeLeftIs = result.value(forKey: "timeAlert") as! String
                     print(timeLeftIs)
-                    if timeLeftIs == "293" {
+                    if timeLeftIs == "299" {
                         print("notify the user!")
 //                        notifyUser()
                         notification()
+                    } else if timeLeftIs <= "0" {
+                        notification()
+                    } else {
+                        print("overtime")
                     }
 //                    print(self.products)
                     
@@ -312,42 +349,54 @@ class CartVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func notification() {
-        var Notification = UILocalNotification()
+        let Notification = UILocalNotification()
         
         Notification.alertAction = "Go to the app"
         Notification.alertBody  = "Check the timer"
-        Notification.fireDate = NSDate(timeIntervalSinceNow: 0)
+        Notification.fireDate = Date(timeIntervalSinceNow: 0)
         
-        UIApplication.sharedApplication().scheduleLocalNotification(Notification)
+        UIApplication.shared.scheduleLocalNotification(Notification)
     }
 
     func notifyUser(){
-        var notifyView = UIAlertController(title: "30 mins left!", message: "Items on hold needs to be checked out. Tick Tock!", preferredStyle: UIAlertControllerStyle.Alert)
+        let notifyView = UIAlertController(title: "30 mins left!", message: "Items on hold needs to be checked out. Tick Tock!", preferredStyle: UIAlertControllerStyle.alert)
         
-        notifyView.addAction(UIAlertAction(title: "Go", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(notifyView, animated: true, completion: nil)
+        notifyView.addAction(UIAlertAction(title: "Go", style: UIAlertActionStyle.default, handler: nil))
+        self.present(notifyView, animated: true, completion: nil)
         
         
     }
     
-    func alertPopup() {
-        let alert = UIAlertController(title: "Add new Item", message: nil, preferredStyle: .Alert)
+    func typeBoothNumberError(){
+        let alert = UIAlertController(title: "Please type booth number", message: nil, preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel) {
             UIAlertAction in
-            alert.dismissViewControllerAnimated(true, completion: nil)
+            alert.dismiss(animated: true, completion: nil)
         }
         
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default){
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func alertPopup() {
+        let alert = UIAlertController(title: "Add new Item", message: nil, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        let saveAction = UIAlertAction(title: "Save", style: UIAlertActionStyle.default){
             UIAlertAction in
             self.saveNewItem()
         }
         
-        alert.addTextFieldWithConfigurationHandler(configurationTextFields)
-        alert.addTextFieldWithConfigurationHandler(configurationTextFields2)
+        alert.addTextField(configurationHandler: configurationTextFields)
+        alert.addTextField(configurationHandler: configurationTextFields2)
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
 }

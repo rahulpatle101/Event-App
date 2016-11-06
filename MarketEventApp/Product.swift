@@ -8,17 +8,17 @@
 
 import Foundation
 class Product {
-    private var _productId: Int!
-    private var _name: String!
-    private var _description: String!
-    private var _price: String!
-    private var _country: String!
-    private var _culture: String!
-    private var _artist: String!
-    private var _category: String!
-    private var _boothId: Int!
+    fileprivate var _productId: Int!
+    fileprivate var _name: String!
+    fileprivate var _description: String!
+    fileprivate var _price: String!
+    fileprivate var _country: String!
+    fileprivate var _culture: String!
+    fileprivate var _artist: String!
+    fileprivate var _category: String!
+    fileprivate var _boothId: Int!
     
-    private var _productUrl: String!
+    fileprivate var _productUrl: String!
     
     var name: String {
         return _name
@@ -51,7 +51,7 @@ class Product {
         _productUrl = "\(URL_BASE)\(URL_PRODUCT)\(self.productId)/"
     }
     
-    func downloadProductDetails(completed: DownloadComplete){
+    func downloadProductDetails(_ completed: DownloadComplete){
         
     }
 }
